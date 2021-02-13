@@ -2,6 +2,8 @@ const request = require('request')
 const fs = require('fs')
 const path = require('path')
 
+const parseUrl = require('./parseUrl')
+
 function getImageByUrl(url) {
   request({
     url: url,
@@ -23,6 +25,3 @@ function getImageByUrl(url) {
 }
 
 getImageByUrl('https://i0.hdslb.com/bfs/emote/48f75163437445665a9be80bb316e4cb252c5415.gif')
-
-const urlPath = require('./urlPath')
-urlPath.fn()
