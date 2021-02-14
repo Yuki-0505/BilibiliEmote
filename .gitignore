@@ -13,4 +13,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 
-img/
+*.png
+*.gif
+*.jpg
+*.jpeg

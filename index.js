@@ -1,7 +1,6 @@
 const request = require('request')
 const fs = require('fs')
 const path = require('path')
-const { resolveCname } = require('dns')
 
 /**
  * parseUrlFromHtml(filePath: string, callback: (err: Error, data: Array<{title: string, url: string}>) => void): void
@@ -9,7 +8,7 @@ const { resolveCname } = require('dns')
 function parseUrlFromHtml(filePath, callback) {
   fs.readFile(filePath, 'utf-8', (err, data) => {
     if (err) {
-      return callback(err)
+      return callback && callback(err)
     }
     let titles = data.match(/title="\[[\u4e00-\u9fa5\w]+\]"/g)
     let urls = data.match(/url\(\&quot;[\w\/\.]+\&quot;\)/g)
@@ -37,7 +36,7 @@ function saveEmojiByUrl(emoji, callback) {
     }
   }, (err, res, body) => {
     if (err) {
-      return callback(err)
+      return callback && callback(err)
     }
     let fileName = path.join(__dirname, '/public', '/img', emoji.title.trim() + path.extname(emoji.url))
     fs.writeFile(fileName, body, callback)
@@ -60,6 +59,11 @@ function save(htmlFileName) {
 }
 
 function main() {
+  save('崩坏3.html')
+  save('公主连结.html')
+  save('洛天依.html')
+  save('蛆音娘.html')
+  save('阴阳师缘结神.html')
   save('hot_words.html')
   save('tv.html')
 }
