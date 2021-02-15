@@ -63,6 +63,7 @@ function main() {
   save('公主连结.html')
   save('洛天依.html')
   save('蛆音娘.html')
+  save('小黄脸.html')
   save('阴阳师缘结神.html')
   save('hot_words.html')
   save('tv.html')
